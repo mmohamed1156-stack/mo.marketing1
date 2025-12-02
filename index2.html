@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Education Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            /* ألوان احترافية أكثر للبزنس - لوحة ألوان أنيقة وعصرية */
+            --primary: #0F2C59; /* أزرق داكن أنيق */
+            --secondary: #3A7BD5; /* أزرق شركاتي */
+            --accent: #F05454; /* أحمر طاقة وإثارة */
+            --accent-secondary: #FF9F1C; /* برتقالي إبداعي */
+            --light: #F8F9FA;
+            --dark: #212529;
+            --success: #28A745;
+            --text: #343A40;
+            --text-light: #6C757D;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --transition: all 0.3s ease;
+            --gradient: linear-gradient(135deg, #0F2C59 0%, #3A7BD5 100%);
+            --gradient-light: linear-gradient(135deg, #3A7BD5 0%, #5DA8FF 100%);
+            --gradient-accent: linear-gradient(135deg, #F05454 0%, #FF7B7B 100%);
+            --ai-gradient: linear-gradient(135deg, #0F2C59 0%, #6A11CB 100%);
+            --ai-accent: #8A2BE2;
+            --gold: #FFD700;
+            --silver: #C0C0C0;
+            --business-gray: #495057;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles مع تأثيرات حركية */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(15, 44, 89, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        header.scrolled {
+            padding: 0.7rem 0;
+            background-color: rgba(15, 44, 89, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            padding: 0.3rem 0;
+            overflow: hidden;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-secondary);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .logo:hover::after {
+            transform: translateX(0);
+        }
+
+        .logo i {
+            color: var(--accent-secondary);
+            animation: pulse 2s infinite alternate;
+        }
+
+        .logo span {
+            color: var(--accent-secondary);
+            font-weight: 800;
+            position: relative;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.7s ease;
+        }
+
+        nav ul li a:hover::before {
+            left: 100%;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            transform: rotate(90deg);
+        }
+
+        /* Hero Section مع تأثيرات متطورة */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            animation: float 20s infinite alternate ease-in-out;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero h1 span {
+            color: var(--accent-secondary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+            animation: underline 2s infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0 auto 2.5rem;
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.3s both;
+            max-width: 700px;
+            line-height: 1.8;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* أزرار بتأثيرات متطورة */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--accent);
+            color: white;
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(240, 84, 84, 0.3);
+            animation: pulse 2s infinite alternate;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover {
+            background-color: #d93636;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(240, 84, 84, 0.4);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--ai-gradient);
+            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #090f2c 0%, #5a0cb0 100%);
+            box-shadow: 0 10px 20px rgba(106, 17, 203, 0.5);
+        }
+
+        .btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Modules Section مع تأثيرات بطاقات متطورة */
+        .modules {
+            padding: 5rem 0;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modules::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 70%, rgba(58, 123, 213, 0.03) 0%, transparent 50%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            position: relative;
+            display: inline-block;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+            animation: expandWidth 1.5s ease-out;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        .module-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardFadeIn 0.6s forwards;
+        }
+
+        .module-card:nth-child(1) { animation-delay: 0.1s; }
+        .module-card:nth-child(2) { animation-delay: 0.2s; }
+        .module-card:nth-child(3) { animation-delay: 0.3s; }
+        .module-card:nth-child(4) { animation-delay: 0.4s; }
+        .module-card:nth-child(5) { animation-delay: 0.5s; }
+        .module-card:nth-child(6) { animation-delay: 0.6s; }
+        .module-card:nth-child(7) { animation-delay: 0.7s; }
+        .module-card:nth-child(8) { animation-delay: 0.8s; }
+        .module-card:nth-child(9) { animation-delay: 0.9s; }
+        .module-card:nth-child(10) { animation-delay: 1s; }
+
+        .module-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--secondary);
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .module-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .module-icon {
+            background: var(--gradient-light);
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .module-card:hover .module-icon {
+            background: var(--gradient-accent);
+        }
+
+        .module-icon::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .module-card:hover .module-icon::after {
+            left: 100%;
+        }
+
+        .module-content {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .module-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        .module-card:hover .module-content h3 {
+            color: var(--secondary);
+        }
+
+        .module-content p {
+            color: var(--text-light);
+            margin-bottom: 1.8rem;
+            flex-grow: 1;
+        }
+
+        /* AI Studio Link Section */
+        .ai-studio-link {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-studio-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(58, 123, 213, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(240, 84, 84, 0.05) 0%, transparent 40%);
+        }
+
+        .studio-container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(106, 17, 203, 0.1);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: studioFadeIn 1s forwards 0.5s;
+        }
+
+        .studio-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--ai-gradient);
+            animation: shimmer 3s infinite linear;
+        }
+
+        .studio-icon {
+            margin-bottom: 2rem;
+        }
+
+        .icon-wrapper {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .icon-wrapper svg {
+            color: var(--ai-accent);
+            background: rgba(138, 43, 226, 0.1);
+            padding: 1.5rem;
+            border-radius: 50%;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.2);
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .studio-container:hover .icon-wrapper svg {
+            transform: scale(1.1) rotate(5deg);
+            background: rgba(138, 43, 226, 0.15);
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.3);
+        }
+
+        .icon-wrapper span {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--ai-accent);
+            position: relative;
+        }
+
+        .icon-wrapper span::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-secondary);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .studio-container:hover .icon-wrapper span::after {
+            transform: scaleX(1);
+        }
+
+        .studio-description {
+            margin-bottom: 2.5rem;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .studio-action {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3.5rem 0 1.8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-accent);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1.8rem;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: footerFadeIn 0.8s forwards;
+        }
+
+        .footer-column:nth-child(1) { animation-delay: 0.1s; }
+        .footer-column:nth-child(2) { animation-delay: 0.2s; }
+        .footer-column:nth-child(3) { animation-delay: 0.3s; }
+
+        .footer-column h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-column ul li a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0aec0;
+            font-size: 0.9rem;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.8s;
+        }
+
+        /* Modal Styles مع تأثيرات متطورة */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 2rem 0;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 2rem auto;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            position: relative;
+            animation: modalSlideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        @keyframes modalSlideIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(-50px) scale(0.9); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
+        .modal-header {
+            background: var(--gradient);
+            color: white;
+            padding: 1.8rem 2.5rem;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 3s infinite;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            position: relative;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .close-modal:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2.5rem;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .modal-section {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            animation: fadeInUp 0.5s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .modal-section:nth-child(1) { animation-delay: 0.1s; }
+        .modal-section:nth-child(2) { animation-delay: 0.2s; }
+        .modal-section:nth-child(3) { animation-delay: 0.3s; }
+        .modal-section:nth-child(4) { animation-delay: 0.4s; }
+        .modal-section:nth-child(5) { animation-delay: 0.5s; }
+
+        .modal-section h3 {
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 2px solid var(--light);
+            font-size: 1.4rem;
+            position: relative;
+        }
+
+        .modal-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .modal-section p {
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .modal-section ul {
+            margin-left: 1.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .modal-section li {
+            margin-bottom: 0.7rem;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .modal-section li::before {
+            content: '•';
+            color: var(--accent);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .assignment-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin-top: 1.8rem;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transform: translateY(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .assignment-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .assignment-box h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Animations المخصصة */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(240, 84, 84, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(240, 84, 84, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(240, 84, 84, 0); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes expandWidth {
+            0% { width: 0; }
+            100% { width: 60px; }
+        }
+
+        @keyframes underline {
+            0% { transform: scaleX(0); }
+            100% { transform: scaleX(1); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes studioFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes footerFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Particle animation for hero */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: floatParticle 15s infinite linear;
+        }
+
+        @keyframes floatParticle {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Progress bar for modules */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 101;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: var(--gradient-accent);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 1rem;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+                animation: slideDown 0.3s ease-out;
+            }
+            
+            @keyframes slideDown {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0;
+            }
+            
+            nav ul li a {
+                display: flex;
+                padding: 0.8rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                flex: 100%;
+            }
+            
+            .studio-container {
+                padding: 2rem;
+            }
+            
+            .modal-body {
+                padding: 1.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 3rem 0;
+                min-height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .modules, .ai-studio-link {
+                padding: 3rem 0;
+            }
+            
+            .modal-header {
+                padding: 1.2rem 1.5rem;
+            }
+            
+            .modal-header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .studio-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    Marketing<span>Hub</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">
+                            <i class="fas fa-home"></i> Home
+                        </a></li>
+                        <li><a href="#" class="nav-link" data-page="modules">
+                            <i class="fas fa-book"></i> Modules
+                        </a></li>
+                        <li><a href="#" class="nav-link" data-page="ai-studio-link">
+                            <i class="fas fa-robot"></i> AI Assistant
+                        </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Master Modern <span>Marketing Strategies</span></h1>
+                <p>Comprehensive marketing education with practical applications for business success. Learn core concepts, strategic planning, consumer behavior, and market segmentation through interactive modules and AI-powered tools.</p>
+                <a href="#" class="btn nav-link" data-page="modules">
+                    <i class="fas fa-arrow-right"></i> Explore Modules
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section class="modules" id="modules">
+        <div class="container">
+            <div class="section-title">
+                <h2>Marketing Modules</h2>
+                <p>Explore our comprehensive marketing curriculum covering essential concepts and strategies</p>
+            </div>
+            <div class="modules-grid">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <div class="module-icon">M1</div>
+                    <div class="module-content">
+                        <h3>Introduction to Marketing</h3>
+                        <p>Learn the fundamentals of marketing, value creation, and customer relationships.</p>
+                        <button class="btn open-modal" data-modal="modal1">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <div class="module-icon">M2</div>
+                    <div class="module-content">
+                        <h3>Marketing Mix & Process</h3>
+                        <p>Understand customer needs, wants, demands and the marketing process.</p>
+                        <button class="btn open-modal" data-modal="modal2">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <div class="module-icon">M3</div>
+                    <div class="module-content">
+                        <h3>Marketing Management</h3>
+                        <p>Explore different marketing orientations and management approaches.</p>
+                        <button class="btn open-modal" data-modal="modal3">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <div class="module-icon">M4</div>
+                    <div class="module-content">
+                        <h3>Strategic Planning & BCG Matrix</h3>
+                        <p>Learn strategic planning, business portfolios, and the BCG growth-share matrix.</p>
+                        <button class="btn open-modal" data-modal="modal4">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <div class="module-icon">M5</div>
+                    <div class="module-content">
+                        <h3>Growth Strategies</h3>
+                        <p>Explore market penetration, development, product development and diversification.</p>
+                        <button class="btn open-modal" data-modal="modal5">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <div class="module-icon">M6</div>
+                    <div class="module-content">
+                        <h3>Marketing Environment</h3>
+                        <p>Analyze micro and macro environmental factors affecting marketing decisions.</p>
+                        <button class="btn open-modal" data-modal="modal6">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Module 7 -->
+                <div class="module-card">
+                    <div class="module-icon">M7</div>
+                    <div class="module-content">
+                        <h3>Consumer Behavior Factors</h3>
+                        <p>Understand cultural, social, personal and psychological factors influencing buyers.</p>
+                        <button class="btn open-modal" data-modal="modal7">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Module 8 -->
+                <div class="module-card">
+                    <div class="module-icon">M8</div>
+                    <div class="module-content">
+                        <h3>Consumer Decision Process</h3>
+                        <p>Explore the buyer decision process and adoption of new products.</p>
+                        <button class="btn open-modal" data-modal="modal8">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Module 9 -->
+                <div class="module-card">
+                    <div class="module-icon">M9</div>
+                    <div class="module-content">
+                        <h3>Market Segmentation</h3>
+                        <p>Learn how to divide markets into segments and select target markets.</p>
+                        <button class="btn open-modal" data-modal="modal9">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Module 10 -->
+                <div class="module-card">
+                    <div class="module-icon">M10</div>
+                    <div class="module-content">
+                        <h3>Differentiation & Positioning</h3>
+                        <p>Understand how to differentiate products and position them in the market.</p>
+                        <button class="btn open-modal" data-modal="modal10">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ai-studio-link" id="ai-studio-link">
+    <div class="container">
+        <div class="section-title">
+            <h2>Business AI Assistant</h2>
+            <p>Access our Phantom AI - Business Model</p>
+        </div>
+        <div class="studio-container">
+            <div class="studio-icon">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                    <span>Phantom AI - Business Model</span>
+                </div>
+            </div>
+            <div class="studio-description">
+                <p>Click the icon above to access our advanced Business AI model. Get insights and answers about marketing concepts and business strategies. Our AI assistant is trained on the latest marketing theories and can help you with assignments, concept clarification, and strategic planning.</p>
+            </div>
+            <div class="studio-action">
+                <a href="https://ai.studio/apps/drive/1ffhXjzyq36OCLSQcJKqEAEDQtJf4pYOn?fullscreenApplet=true" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-external-link-alt"></i> Open in AI Studio
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>MarketingHub</h4>
+                    <p>Comprehensive marketing education for students and professionals. Learn modern strategies with interactive modules and AI tools.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">
+                            <i class="fas fa-home"></i> Home
+                        </a></li>
+                        <li><a href="#" class="nav-link" data-page="modules">
+                            <i class="fas fa-book"></i> Modules
+                        </a></li>
+                        <li><a href="#" class="nav-link" data-page="ai-studio-link">
+                            <i class="fas fa-robot"></i> AI Assistant
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> Email: Mohamed.jamil@su.edu.eg</li>
+                        <li><i class="fas fa-user-tie"></i> Our university professor: Mohamed el-kashef</li>
+                        <li><i class="fas fa-user-graduate"></i> Student Developer: Mohamed Nabil</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Website designed under the supervision of Dr. Mohamed el-kashef. By student: Mohamed Nabil. © 2023 MarketingHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="modal1">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Introduction to Marketing</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>What is Marketing?</h3>
+                    <p>Marketing is a process by which companies create value for customers and build strong customer relationships to capture value from customers in return.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Marketing Process</h3>
+                    <p>The marketing process involves understanding customer needs, designing customer-driven strategies, constructing marketing programs, building relationships, and capturing value.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Understanding Customer Needs</h3>
+                    <p><strong>Needs:</strong> States of deprivation including:</p>
+                    <ul>
+                        <li>Physical needs: food, clothing, warmth, safety</li>
+                        <li>Social needs: belonging and affection</li>
+                        <li>Individual needs: knowledge and self-expression</li>
+                    </ul>
+                    
+                    <p><strong>Wants:</strong> The form that needs take as they are shaped by culture and individual personality.</p>
+                    
+                    <p><strong>Demands:</strong> Wants backed by buying power.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Marketing Myopia</h3>
+                    <p>Marketing myopia is the mistake of focusing only on existing wants and losing sight of underlying consumer needs.</p>
+                </div>
+                
+                <div class="assignment-box">
+                    <h4>Assignment</h4>
+                    <p>Choose one of the marketing concepts discussed (e.g., Marketing Concept, Societal Marketing, or Selling Concept) and explain how a dental clinic can apply this concept to attract patients and achieve success.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal2">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Marketing Mix & Process</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Marketing Offerings</h3>
+                    <p>Marketing offerings can include:</p>
+                    <ul>
+                        <li><strong>Product:</strong> Physical goods or services</li>
+                        <li><strong>Service:</strong> Intangible activities or benefits</li>
+                        <li><strong>Information:</strong> Knowledge and data</li>
+                        <li><strong>Experience:</strong> Memorable events</li>
+                        <li><strong>Person:</strong> Individual representation</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Designing a Customer-Driven Marketing Strategy</h3>
+                    <p>Marketing management is the art and science of choosing target markets and building profitable relationships with them.</p>
+                    
+                    <p><strong>Selecting Customers to Serve:</strong></p>
+                    <ul>
+                        <li>Market segmentation: Dividing markets into segments of customers</li>
+                        <li>Target marketing: Deciding which segments to serve</li>
+                    </ul>
+                    
+                    <p><strong>Choosing a Value Proposition:</strong></p>
+                    <p>A brand's value proposition is the set of benefits or values a company promises to deliver to customers to satisfy their needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal3">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Marketing Management Orientations</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Marketing Management Concepts</h3>
+                    <p>There are five alternative concepts under which organizations conduct their marketing activities:</p>
+                    
+                    <p><strong>Production Concept:</strong> Consumers will favor products that are available and highly affordable.</p>
+                    
+                    <p><strong>Product Concept:</strong> Consumers favor products that offer the most quality, performance, and features. Focus is on continuous product improvements.</p>
+                    
+                    <p><strong>Selling Concept:</strong> Consumers will not buy enough of the firm's products unless it undertakes a large-scale selling and promotion effort.</p>
+                    
+                    <p><strong>Marketing Concept:</strong> Knowing the needs and wants of the target markets and delivering the desired satisfactions better than competitors do.</p>
+                    
+                    <p><strong>Societal Marketing Concept:</strong> Making good marketing decisions by considering consumers' wants and long-term interests, company's requirements, and society's long-run interests.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal4">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Strategic Planning & BCG Matrix</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Strategic Planning</h3>
+                    <p>Strategic planning is the process of developing and maintaining a strategic fit between the organization's goals and capabilities and its changing marketing opportunities.</p>
+                    
+                    <p><strong>Steps in Strategic Planning:</strong></p>
+                    <ul>
+                        <li>Defining a market-oriented mission</li>
+                        <li>Setting company objectives and goals</li>
+                        <li>Designing the business portfolio</li>
+                        <li>Planning marketing and other functional strategies</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>BCG Growth-Share Matrix</h3>
+                    <p>The Boston Consulting Group (BCG) growth-share matrix is a planning tool that uses graphical representations of a company's products and services to help decide what to keep, sell, or invest in.</p>
+                    
+                    <p><strong>STARS:</strong> Products in high-growth markets with sizable market share. Generate high income but consume large cash. Companies should invest significantly.</p>
+                    
+                    <p><strong>CASH COWS:</strong> Products in low-growth areas with large market share. Typically leading products in mature markets. Companies should milk these for cash to reinvest.</p>
+                    
+                    <p><strong>QUESTION MARKS:</strong> Products in high-growth markets but with small market share. Grow fast but consume large resources. Companies should analyze frequently.</p>
+                    
+                    <p><strong>DOGS:</strong> Products with low market share and low growth. Don't generate much cash. Prime candidates for divestiture.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal5">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Growth Strategies</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Product/Market Expansion Grid</h3>
+                    <p>A tool for identifying company growth opportunities through four strategies:</p>
+                    
+                    <p><strong>Market Penetration:</strong> Growth by increasing sales to current market segments without changing the product. Example: Add new stores in current market areas.</p>
+                    
+                    <p><strong>Market Development:</strong> Growth by identifying and developing new market segments for current products. Example: Review new demographic markets.</p>
+                    
+                    <p><strong>Product Development:</strong> Growth strategy that offers new or modified products to existing market segments. Example: Moving into new product categories.</p>
+                    
+                    <p><strong>Diversification:</strong> Growth strategy through starting up or acquiring businesses outside the company's current products and markets.</p>
+                </div>
+                
+                <div class="assignment-box">
+                    <h4>Assignment</h4>
+                    <p>Name and describe the four product/market expansion grid strategies.</p>
+                    <p>Careem is a transportation network company that currently operates in more cities in Egypt, covering more areas outside Cairo and Alexandria, moving to North Coast and Elgoona in summer, and using TocToc for fast and small distance transportation. Which growth strategy does this represent?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal6">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Marketing Environment Analysis</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>The Marketing Environment</h3>
+                    <p>The marketing environment includes actors and forces outside marketing that affect marketing management's ability to build successful customer relationships.</p>
+                    
+                    <p><strong>Microenvironment:</strong> Actors close to the company that affect its ability to serve customers:</p>
+                    <ul>
+                        <li>The company itself</li>
+                        <li>Suppliers</li>
+                        <li>Marketing intermediaries</li>
+                        <li>Customer markets</li>
+                        <li>Competitors</li>
+                        <li>Publics</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Macroenvironment</h3>
+                    <p>Larger societal forces that affect the microenvironment:</p>
+                    
+                    <p><strong>Political Factors:</strong> Government policy, political stability, foreign trade, corruption, tax policy.</p>
+                    
+                    <p><strong>Economic Factors:</strong> Economic growth, disposable income, unemployment rate, exchange rate, inflation rate, spending patterns.</p>
+                    
+                    <p><strong>Social Factors:</strong> Population growth rate, age distribution, income level, careers, lifestyle, cultural barriers.</p>
+                    
+                    <p><strong>Technological Factors:</strong> Innovation, technological change, technological awareness.</p>
+                    
+                    <p><strong>Natural Environment:</strong> Shortages of raw materials, increased pollution, government intervention, environmentally sustainable strategies.</p>
+                    
+                    <p><strong>Legal Factors:</strong> Discrimination laws, employment laws, consumer protection laws, copyright laws.</p>
+                </div>
+                
+                <div class="assignment-box">
+                    <h4>Assignment</h4>
+                    <p>Due to recent changes in the exchange rate in Egypt, the prices of imported dental materials and equipment have increased significantly. As a dental student or future dentist, how could such economic challenges affect your dental practice and patient care? What practical steps could you take to provide affordable and effective treatment for your patients despite these rising costs?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal7">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Consumer Behavior Factors</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Factors Influencing Consumer Behavior</h3>
+                    
+                    <p><strong>Cultural Factors:</strong></p>
+                    <ul>
+                        <li>Culture: Learned values, perceptions, wants, and behavior from family and institutions</li>
+                        <li>Subculture: Groups with shared value systems based on common life experiences</li>
+                        <li>Social Classes: Society's relatively permanent divisions with similar values and behaviors</li>
+                    </ul>
+                    
+                    <p><strong>Social Factors:</strong></p>
+                    <ul>
+                        <li>Membership Groups: Groups with direct influence</li>
+                        <li>Aspirational Groups: Groups an individual wishes to belong to</li>
+                        <li>Reference Groups: Groups that form comparison for attitudes/behavior</li>
+                        <li>Family: Most important consumer-buying organization</li>
+                        <li>Social Roles and Status</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Personal Factors</h3>
+                    <ul>
+                        <li>Age and life-cycle stage</li>
+                        <li>Occupation</li>
+                        <li>Economic situation</li>
+                        <li>Lifestyle: Pattern of living expressed in psychographics (AIOs - activities, interests, opinions)</li>
+                        <li>Personality: Unique psychological characteristics</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Psychological Factors</h3>
+                    <ul>
+                        <li>Motivation: Needs that direct behavior</li>
+                        <li>Perception: Process of selecting, organizing, and interpreting information</li>
+                        <li>Learning: Changes in behavior from experience</li>
+                        <li>Beliefs and Attitudes: Descriptive thoughts and evaluations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal8">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Consumer Decision Process</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Buyer Decision Making Process</h3>
+                    
+                    <p><strong>Need Recognition:</strong> Occurs when buyer recognizes a problem or need triggered by internal or external stimuli.</p>
+                    
+                    <p><strong>Information Search:</strong> Sources include:</p>
+                    <ul>
+                        <li>Personal sources: family and friends</li>
+                        <li>Commercial sources: advertising, Internet</li>
+                        <li>Public sources: mass media, consumer organizations</li>
+                        <li>Experiential sources: handling, examining, using the product</li>
+                    </ul>
+                    
+                    <p><strong>Evaluation of Alternatives:</strong> How consumer processes information to arrive at brand choices.</p>
+                    
+                    <p><strong>Purchase Decision:</strong> The act of buying the most preferred brand, affected by attitudes of others and unexpected situational factors.</p>
+                    
+                    <p><strong>Post-Purchase Decision:</strong> Satisfaction or dissatisfaction based on the relationship between expectations and perceived performance.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Adoption Process for New Products</h3>
+                    <p>The mental process from first learning about an innovation to final regular use:</p>
+                    <ul>
+                        <li>Awareness</li>
+                        <li>Interest</li>
+                        <li>Evaluation</li>
+                        <li>Trial</li>
+                        <li>Adoption</li>
+                    </ul>
+                    
+                    <p><strong>Adopter Categories:</strong></p>
+                    <ul>
+                        <li>Innovators</li>
+                        <li>Early Adopters</li>
+                        <li>Early Majority</li>
+                        <li>Late Majority</li>
+                        <li>Laggards</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-box">
+                    <h4>Assignment</h4>
+                    <p>Identify and describe the innovation adoption lifecycle.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal9">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Market Segmentation</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Segmenting Consumer Markets</h3>
+                    
+                    <p><strong>Geographic Segmentation:</strong> Dividing market into different geographical units (nations, regions, states, counties, cities).</p>
+                    
+                    <p><strong>Demographic Segmentation:</strong> Dividing market based on age, gender, family size, life cycle, income, occupation, education, religion, race, generation, nationality.</p>
+                    
+                    <p><strong>Psychographic Segmentation:</strong> Dividing buyers based on social class, lifestyle, or personality traits.</p>
+                    
+                    <p><strong>Behavioral Segmentation:</strong> Dividing buyers based on knowledge, attitudes, uses, or responses:</p>
+                    <ul>
+                        <li>Occasions: When they get idea to buy, make purchase, or use item</li>
+                        <li>Benefits: Different benefits sought from product</li>
+                        <li>User Status: Nonusers, ex-users, potential users, first-time users, regular users</li>
+                        <li>Loyalty Status: Completely loyal, somewhat loyal, no loyalty</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Requirements for Effective Segmentation</h3>
+                    <p>Market segments must be:</p>
+                    <ul>
+                        <li><strong>Measurable:</strong> Size, purchasing power, and characteristics can be measured</li>
+                        <li><strong>Accessible:</strong> Effectively reached and served</li>
+                        <li><strong>Substantial:</strong> Large and profitable enough to serve</li>
+                        <li><strong>Differentiable:</strong> Conceptually distinguishable and respond differently</li>
+                        <li><strong>Actionable:</strong> Effective programs can be designed for attracting and serving</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-box">
+                    <h4>Assignment</h4>
+                    <p>As a future dentist, explain why market segmentation is important for dental practice success. Give practical examples of how you would segment your potential patients in Arish.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal10">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Differentiation & Positioning</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Product Positioning</h3>
+                    <p>Product position is the way the product is defined by consumers on important attributes—the place the product occupies in consumers' minds relative to competing products based on perceptions, impressions, and feelings.</p>
+                    
+                    <p><strong>Positioning Maps:</strong> Show consumer perceptions of brands versus competing products on important buying dimensions.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Choosing a Positioning Strategy</h3>
+                    
+                    <p><strong>Identifying Competitive Advantages:</strong> Building a position by providing superior value through:</p>
+                    <ul>
+                        <li>Product differentiation</li>
+                        <li>Service differentiation</li>
+                        <li>Channel differentiation</li>
+                        <li>People differentiation</li>
+                        <li>Image differentiation</li>
+                    </ul>
+                    
+                    <p><strong>Choosing the Right Competitive Advantage:</strong> Differences should be important, distinctive, superior, communicable, preemptive, affordable, and profitable.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Positioning Strategies</h3>
+                    
+                    <p><strong>More-for-More:</strong> Providing the most upscale product/service with higher price for higher costs and prestige.</p>
+                    
+                    <p><strong>More for the Same:</strong> Attacking competitors by offering comparable quality at lower price.</p>
+                    
+                    <p><strong>The Same for Less:</strong> Offering the same for less—a powerful value proposition.</p>
+                    
+                    <p><strong>Less for Much Less:</strong> Offering less and costing less for markets that don't need "the very best."</p>
+                    
+                    <p><strong>More for Less:</strong> The winning but difficult-to-sustain proposition of offering more for less.</p>
+                </div>
+                
+                <div class="assignment-box">
+                    <h4>Assignment</h4>
+                    <p>From your perspective as a dentist, what is the most effective way to use image differentiation (such as clinic design, branding, or advertising style) to shape patients' perceptions and build a strong position in the dental market?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Marketing knowledge base
+        const marketingData = [
+            {
+                question: "what is marketing",
+                answer: "Marketing is a process by which companies create value for customers and build strong customer relationships to capture value from customers in return."
+            },
+            {
+                question: "customer needs wants demands",
+                answer: "Needs are states of deprivation (physical, social, individual). Wants are the form that needs take as shaped by culture and personality. Demands are wants backed by buying power."
+            },
+            {
+                question: "marketing myopia",
+                answer: "Marketing myopia is focusing only on existing wants and losing sight of underlying consumer needs."
+            },
+            {
+                question: "marketing management orientations",
+                answer: "There are five orientations: Production concept (available, affordable), Product concept (quality, performance), Selling concept (promotion effort), Marketing concept (knowing needs better than competitors), Societal marketing (considering consumer wants, company requirements, and society's interests)."
+            },
+            {
+                question: "strategic planning",
+                answer: "Strategic planning is the process of developing and maintaining strategic fit between organization's goals/capabilities and changing marketing opportunities."
+            },
+            {
+                question: "bcg matrix",
+                answer: "The BCG growth-share matrix categorizes products as: Stars (high growth, high share - invest), Cash Cows (low growth, high share - milk), Question Marks (high growth, low share - analyze), Dogs (low growth, low share - divest)."
+            },
+            {
+                question: "growth strategies",
+                answer: "Product/Market Expansion Grid includes: Market penetration (current markets, current products), Market development (new markets, current products), Product development (current markets, new products), Diversification (new markets, new products)."
+            },
+            {
+                question: "marketing environment",
+                answer: "Includes microenvironment (company, suppliers, intermediaries, customers, competitors, publics) and macroenvironment (political, economic, social, technological, natural, legal factors)."
+            },
+            {
+                question: "consumer behavior factors",
+                answer: "Cultural (culture, subculture, social class), Social (groups, family, roles), Personal (age, occupation, economic, lifestyle, personality), Psychological (motivation, perception, learning, beliefs, attitudes)."
+            },
+            {
+                question: "buyer decision process",
+                answer: "Five stages: Need recognition, Information search, Evaluation of alternatives, Purchase decision, Post-purchase decision."
+            },
+            {
+                question: "market segmentation",
+                answer: "Dividing markets into segments with distinct needs: Geographic, Demographic, Psychographic, Behavioral (occasions, benefits, user status, loyalty)."
+            },
+            {
+                question: "target marketing strategies",
+                answer: "Undifferentiated marketing (one offer for whole market), Differentiated marketing (separate offers for segments), Concentrated marketing (niche targeting), Micromarketing (local or individual marketing)."
+            },
+            {
+                question: "positioning strategies",
+                answer: "More-for-more (upscale with higher price), More for the same (comparable quality at lower price), The same for less (good deal), Less for much less (basic at lower cost), More for less (difficult to sustain)."
+            },
+            {
+                question: "value proposition",
+                answer: "The set of benefits or values a company promises to deliver to customers to satisfy their needs."
+            },
+            {
+                question: "swot analysis",
+                answer: "A framework for analyzing company's internal Strengths and Weaknesses, and external Opportunities and Threats."
+            }
+        ];
+
+        // DOM Elements
+        const modals = document.querySelectorAll('.modal');
+        const openModalButtons = document.querySelectorAll('.open-modal');
+        const closeModalButtons = document.querySelectorAll('.close-modal');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const menuToggle = document.getElementById('menu-toggle');
+        const nav = document.getElementById('main-nav');
+        const header = document.getElementById('main-header');
+        const progressBar = document.getElementById('progress-bar');
+        const particlesContainer = document.getElementById('particles');
+
+        // إنشاء جزيئات متحركة للهيرو
+        function createParticles() {
+            const particleCount = 20;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // خصائص عشوائية
+                const size = Math.random() * 20 + 5;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 15;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${left}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // تتبع التمرير لشريط التقدم وتأثير الهيدر
+        function handleScroll() {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            progressBar.style.width = `${scrolled}%`;
+            
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Modal Functions
+        function openModal(modalId) {
+            console.log('Opening modal:', modalId);
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                // إضافة تأثير اهتزاز خفيف عند فتح المودال
+                modal.style.animation = 'none';
+                setTimeout(() => {
+                    modal.style.animation = 'modalFadeIn 0.3s';
+                }, 10);
+            } else {
+                console.error('Modal not found:', modalId);
+            }
+        }
+
+        function closeModal(modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Navigation Functions
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            nav.classList.toggle('active');
+            // تغيير أيقونة القائمة
+            const icon = menuToggle.querySelector('i');
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Event Listeners - MUST BE AT THE TOP LEVEL
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, setting up event listeners...');
+            
+            // Setup open modal buttons
+            document.querySelectorAll('.open-modal').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const modalId = this.getAttribute('data-modal');
+                    console.log('Button clicked, modalId:', modalId);
+                    openModal(modalId);
+                });
+            });
+
+            // Setup close modal buttons
+            document.querySelectorAll('.close-modal').forEach(button => {
+                button.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    closeModal(modal);
+                });
+            });
+
+            // Setup nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    
+                    if (page === 'home') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        scrollToSection(page);
+                    }
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove('active');
+                        const icon = menuToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+
+            // Setup menu toggle
+            if (menuToggle) {
+                menuToggle.addEventListener('click', toggleMobileMenu);
+            }
+
+            // Close modals when clicking outside
+            modals.forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModal(modal);
+                    }
+                });
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    modals.forEach(modal => {
+                        if (modal.style.display === 'block') {
+                            closeModal(modal);
+                        }
+                    });
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 && nav.classList.contains('active')) {
+                    if (!nav.contains(e.target) && e.target !== menuToggle) {
+                        nav.classList.remove('active');
+                        const icon = menuToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+
+            // Initialize
+            createParticles();
+            
+            if (window.innerWidth > 768) {
+                nav.classList.add('active');
+            }
+            
+            // إضافة تأثير ظهور تدريجي للمحتوى
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+
+            // تتبع التمرير
+            window.addEventListener('scroll', handleScroll);
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                nav.classList.add('active');
+            } else {
+                nav.classList.remove('active');
+            }
+        });
+
+        // تهيئة حالة التحميل
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
+
+        // إضافة تأثيرات للبطاقات عند ظهورها في العرض
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // مراقبة العناصر التي لها تأثيرات ظهور
+        document.querySelectorAll('.module-card, .studio-container, .footer-column').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
